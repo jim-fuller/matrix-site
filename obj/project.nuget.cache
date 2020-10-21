@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "dgSpecHash": "xl2gumhFy9moflj0B5EVn5fauXDFgTWpwWLC6NYJujkpfErJEWsnhiWXRpEMrDwUj1q6QoUi7uorkWt6mECghg==",
+  "success": true,
+  "projectFilePath": "/home/ubuntu/MyProjects/Redline/matrix-site/matrix-site.csproj",
+  "expectedPackageFiles": [
+    "/home/ubuntu/.nuget/packages/fluentmigrator/3.2.9/fluentmigrator.3.2.9.nupkg.sha512",
+    "/home/ubuntu/.nuget/packages/fluentmigrator.abstractions/3.2.9/fluentmigrator.abstractions.3.2.9.nupkg.sha512",
+    "/home/ubuntu/.nuget/packages/microsoft.extensions.dependencyinjection/2.0.0/microsoft.extensions.dependencyinjection.2.0.0.nupkg.sha512",
+    "/home/ubuntu/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/2.0.0/microsoft.extensions.dependencyinjection.abstractions.2.0.0.nupkg.sha512",
+    "/home/ubuntu/.nuget/packages/microsoft.extensions.options/2.0.1/microsoft.extensions.options.2.0.1.nupkg.sha512",
+    "/home/ubuntu/.nuget/packages/microsoft.extensions.primitives/2.0.0/microsoft.extensions.primitives.2.0.0.nupkg.sha512",
+    "/home/ubuntu/.nuget/packages/newtonsoft.json/12.0.3/newtonsoft.json.12.0.3.nupkg.sha512",
+    "/home/ubuntu/.nuget/packages/npgsql/4.1.5/npgsql.4.1.5.nupkg.sha512",
+    "/home/ubuntu/.nuget/packages/system.componentmodel.annotations/4.4.1/system.componentmodel.annotations.4.4.1.nupkg.sha512",
+    "/home/ubuntu/.nuget/packages/system.runtime.compilerservices.unsafe/4.6.0/system.runtime.compilerservices.unsafe.4.6.0.nupkg.sha512",
+    "/home/ubuntu/.nuget/packages/system.valuetuple/4.4.0/system.valuetuple.4.4.0.nupkg.sha512"
+  ],
+  "logs": []
+}

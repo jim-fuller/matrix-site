@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+</head>
+<body>
+    <style>
+        td {
+            padding: 5px 5px 5px 5px;
+        }
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 40%;
+        }
+        * {
+            box-sizing: border-box;
+        }
+
+        .column1 {
+            float: left;
+            width: 20%;
+            padding: 10px;
+            height: 300px;
+            text-align: center;
+            
+        }
+        .column2 {
+            float: left;
+            width: 60%;
+            padding: 10px;
+            height: 300px;
+            text-align: center;
+        }
+        .column3 {
+            float: left;
+            width: 20%;
+            padding: 10px;
+            height: 300px;
+            text-align: center;
+        }
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+            
+        }
+    </style>
+
+    <div class="row">
+        <div class="column1">
+            <img src="/img/ad1.png" />
+        </div>
+
+        <div class="column2">
+            <a href="/sign-up.html">-- back to sign-up -- </a>
+            <h1>Search Matrix Research Articles by Keyword</h1>
+            <input type="button" onclick="search(this)" value="Search" id="search_btn" />
+            <br /><br />
+            <input id="search_input" type="text" size="50" />
+            <table id="articles" style="text-align:center" align="center">
+                
+            </table>
+        </div>
+        <div class="column3">
+            <img src="/img/ad2.png" />
+        </div>
+    </div>
+    <script>
+        document.getElementById('search_input').addEventListener("change",function (e) {
+            document.getElementById('search_btn').focus();
+        });
+        function createNode(element) {
+            return document.createElement(element);
+        }
+        function append(parent, el) {
+            return parent.appendChild(el);
+        }
+        function search() {
+            const table = document.getElementById('articles');
+            table.innerHTML = "";
+            const search_term = document.getElementById('search_input');
+            const url = '/api/Articles/' + search_term.value;
+            console.log(url);
+            fetch(url)
+                .then((resp) => resp.json())
+                .then(function (data) {
+                    if (data.length === 2) { return; }
+                    console.log(data);
+                    let articles = data;
+                    hdr1 = createNode('th');
+                    hdr1.innerHTML="ID"
+                    append(table, hdr1);
+                    hdr2 = createNode('th');
+                    hdr2.innerHTML = "Author"
+                    append(table, hdr2);
+                    hdr3 = createNode('th');
+                    hdr3.innerHTML = "Title";
+                    append(table, hdr2);
+                    hdr4 = createNode('th');
+                    hdr4.innerHTML = "Date";
+                    append(table, hdr4);
+                    hdr5 = createNode('th');
+                    hdr5.innerHTML = "Title";
+                    append(table, hdr5);
+                    hdr6 = createNode('th');
+                    hdr6.innerHTML = "Permalink";
+                    append(table, hdr6);
+                    hdr7 = createNode('th');
+                    hdr7.innerHTML = "Published";
+                    append(table, hdr7);
+                    return articles.map(function (article) {
+                        let tr = createNode('tr'),
+                            cellid = createNode('td'),
+                            cellauthor = createNode('td'),
+                            cellcreated = createNode('td'),
+                            cellheadline = createNode('td'),
+                            cellpermalink = createNode('td'),
+                            cellpublished = createNode('td');
+                        cellid.innerHTML = `${article.id}`;
+                        cellauthor.innerHTML = `${article.author}`;
+                        cellcreated.innerHTML = `${article.created}`;
+                        cellheadline.innerHTML = `<a href="">${article.headline}</a>`;
+                        cellpermalink.innerHTML = `${article.permalink}`;
+                        cellpublished.innerHTML = `${article.published}`;
+                        append(tr, cellid);
+                        append(tr, cellauthor);
+                        append(tr, cellcreated);
+                        append(tr, cellheadline);
+                        append(tr, cellpermalink);
+                        append(tr, cellpublished);
+                        append(table, tr);
+                    })
+                });
+        }
+    </script>
+</body>
+
+</html>
