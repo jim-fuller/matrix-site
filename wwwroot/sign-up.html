@@ -3,29 +3,174 @@
 <head>
     <meta charset="utf-8" />
     <title>Matrix Investments</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            position: relative;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right:0;
+            height:52px;
+            background-color:black;
+       }
+
+        .main-nav-link {
+            float: right;
+            color: rgb(132, 192, 82);
+            line-height: 52px;
+            padding-right: 12px;
+            text-decoration: none;
+        }
+
+        h1 {
+            color: white;
+            height:32px;
+            margin: 0;
+            font-weight: lighter;
+            padding: 10px 12px;
+            float: left;
+        }
+
+        .sign-up-form {
+            position: fixed;
+            top:52px;
+            bottom:0;
+            right: 0;
+            width: 300px;
+            padding: 24px;
+            background-color: rgba(0,0,0,.1);
+            overflow-x:hidden;
+            overflow-y:auto;
+        }
+
+        input {
+            height: 32px;
+            border-radius:3px;
+            border:1px solid grey;
+            line-height: 24px;
+            float: left;
+            width: calc(100% - 6px);
+            margin-bottom:24px;
+        }
+
+        input[type=checkbox] {
+            width: 24px;
+            padding: 0;
+            line-height: 24px;
+            margin: 0;
+        }
+
+        input[type=button] {
+            height:36px;
+            line-height: 36px;
+            color: white;
+            background-color: rgb(98, 145, 60);
+            font-size: 18px;
+            border: 0;
+            border-radius: 0;
+        }
+
+        select {
+            height: 32px;
+            border-radius:3px;
+            border:1px solid grey;
+            line-height: 24px;
+            float: left;
+            width: 100%;
+            margin-bottom:24px;
+            padding:5px;
+        }
+
+        select.split {
+            width: calc(50% - 11px);
+        }
+
+        .input-divider {
+            float: left;
+            padding: 4px 8px;
+        }
+
+        label {
+            float: left;
+            width: 100%;
+        }
+
+        .acknowledge {
+            float: left;
+            width: calc(100% - 50px);
+            margin-left: 16px;
+            margin-bottom: 24px;
+        }
+
+        content {
+            position: fixed;
+            left: 0;
+            top: 52px;
+            bottom: 0;
+            right: 348px;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        content img {
+            width: 100%;
+        }
+
+        content .sample-article {
+            width:calc(100% - 48px);
+            color: grey;
+            padding:24px;
+        }
+
+        content h2 {
+            color:black;
+        }
+    </style>
 </head>
 <body>
-    <h1>Sign Up to Matrix Investment Research Today..</h1>
-    <img src="/img/bb.png" />
-    <div>
-        <a href="article-search.html">Search Articles</a>
-    </div>
-  
+    <header>
+        <h1>Matrix Investment Research</h1>
+        <a href="article-search.html" class="main-nav-link">Search Articles</a>
+    </header>
+    <content>
+        <img src="/img/bb.png" />
+        <div class="sample-article">
+            <h2>
+                Double Your Investments in 1 Week
+            </h2>
+            <p>
+                We have the top investors from around the globe studying the market 
+                to help your investments grow!  Our leading experts are so good, 
+                you'll see your investment double and sometime triple in less 
+                than a week's time. 
+                
+            </p>
+            <p>
+                Sign up today to learn more.
+            </p>
+        </div>
+    </content>
 
-
-        <h3>Choose your billing plan</h3>
+    <div class="sign-up-form">
+        <h2>Sign up for Matrix Investment Research TODAY!</h1>
+        <label>Choose your billing plan</label>
         <select id="cars">
             <option value="volvo">Monthly $29.99 /month</option>
             <option value="saab">Yearly $239 /year ($19.99 /month save 30%!)</option>
         </select>
         <h2>Enter Billing Information</h2>
-        <h3>Name on Card</h3>
+        <label>Name on Card</label>
         <input type="text" size="44" />
-        <h3>Card Number</h3>
+        <label>Card Number</label>
         <input type="text" size="44" />
-        <h3>Card Details</h3>
-        <select>
-
+        <label>Expiration Date</label>
+        <select class="split">
             <option value="">
                 - Expiry Month -
             </option>
@@ -91,16 +236,13 @@
             </option>
 
         </select>
-        /
-        <select>
+        <span class="input-divider">
+            /
+        </span>
+        <select class="split">
 
             <option value="">
-
-
-
                 - Expiry Year -
-
-
             </option>
 
 
@@ -211,10 +353,10 @@
         </select>
 
 
-        <h3>Phone Number</h3>
+        <label>Phone Number</label>
         <input type="text" size="50" />
 
-        <h3>Country</h3>
+        <label>Country</label>
         <select>
 
             <option value="">
@@ -1731,7 +1873,7 @@
             </option>
 
         </select>
-        <h3>State/Province</h3>
+        <label>State/Province</label>
         <select>
 
             <option value="">
@@ -2253,11 +2395,11 @@
             </option>
 
         </select>
-        <h3>Zip Code (5 digits)</h3>
+        <label>Zip Code (5 digits)</label>
         <input type="text" size="5" />
         <h2>Terms</h2>
         <input type="checkbox" id="ack" name="vehicle1" value="Bike">
-        <label for="ack"> I acknowledge my credit card will only be billed after my 14-day trial and will auto-renew until I cancel.</label>
+        <label class="acknowledge" for="ack"> I acknowledge my credit card will only be billed after my 14-day trial and will auto-renew until I cancel.</label>
         <br />
         <br />
         <script>
@@ -2266,6 +2408,8 @@
             }
         </script>
         <input type="button" onclick="submit_pay()" value="Submit Payment" />
+    </div>
+        
 
 </body>
 </html>
