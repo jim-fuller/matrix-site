@@ -10,65 +10,159 @@
         td {
             padding: 5px 5px 5px 5px;
         }
+
         img {
             display: block;
             margin-left: auto;
             margin-right: auto;
             width: 40%;
         }
+
         * {
             box-sizing: border-box;
         }
 
-        .column1 {
-            float: left;
-            width: 20%;
-            padding: 10px;
-            height: 300px;
-            text-align: center;
-            
-        }
-        .column2 {
-            float: left;
-            width: 60%;
-            padding: 10px;
-            height: 300px;
-            text-align: center;
-        }
-        .column3 {
-            float: left;
-            width: 20%;
-            padding: 10px;
-            height: 300px;
-            text-align: center;
-        }
         .row:after {
             content: "";
             display: table;
             clear: both;
             
         }
+
+        body {
+            margin: 0;
+            padding: 0;
+            position: relative;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right:0;
+            height:52px;
+            background-color:black;
+       }
+
+        .main-nav-link {
+            float: right;
+            color: rgb(132, 192, 82);
+            line-height: 52px;
+            padding-right: 12px;
+            text-decoration: none;
+        }
+
+        h1 {
+            color: white;
+            height:32px;
+            margin: 0;
+            font-weight: lighter;
+            padding: 10px 12px;
+            float: left;
+        }
+
+        content {
+            position: fixed;
+            left: 0;
+            top: 52px;
+            bottom: 0;
+            right: 348px;
+            overflow-x: hidden;
+            overflow-y: auto;
+            padding: 24px;
+        }
+
+        content img {
+            width: 100%;
+        }
+
+        content .sample-article {
+            width:calc(100% - 48px);
+            padding:24px;
+        }
+
+        content h2 {
+            color:black;
+        }
+
+        .advertisements {
+            position: fixed;
+            top:52px;
+            bottom:0;
+            right: 0;
+            width: 348px;
+            padding: 24px;
+            background-color: rgba(0,0,0,.1);
+            overflow-x:hidden;
+            overflow-y:auto;
+        }
+
+        .advertisements img {
+            width: 100%;
+        }
+
+        .search-container {
+            float: left;
+            width: 100%;
+        }
+
+        input {
+            float: left;
+            height: 36px;
+            width: calc(100% - 100px);
+        }
+
+        input[type=button] {
+            float: right;
+            height:36px;
+            line-height: 36px;
+            color: white;
+            background-color: rgb(98, 145, 60);
+            font-size: 18px;
+            border: 0;
+            border-radius: 0;
+            width:100px;
+        }
+
+        table {
+            width:100%;
+            margin-top: 24px;
+            float: left;
+        }
+
+        .align-left {
+            text-align: left;
+        }
+
+        table a {
+            color: rgb(98, 145, 60);
+        }
     </style>
-
-    <div class="row">
-        <div class="column1">
-            <img src="/img/ad1.png" />
-        </div>
-
-        <div class="column2">
-            <a href="/sign-up.html">-- back to sign-up -- </a>
-            <h1>Search Matrix Research Articles by Keyword</h1>
-            <input type="button" onclick="search(this)" value="Search" id="search_btn" />
-            <br /><br />
+    <header>
+        <h1>Matrix Investment Research</h1>
+        <a href="/sign-up.html" class="main-nav-link">Go back to sign-up</a>
+    </header>
+    <content>
+        <label>Find Articles by Keyword</label>
+        <div class="search-container">
+            <input type="button" onclick="search(this)" placeholder="Search by keyword" value="Search" id="search_btn" />
             <input id="search_input" type="text" size="50" />
-            <table id="articles" style="text-align:center" align="center">
-                
+        </div>
+        
+        <div class="article-results">
+            <table id="articles" style="text-align:left" align="left">         
             </table>
         </div>
-        <div class="column3">
-            <img src="/img/ad2.png" />
-        </div>
+    </content>
+
+    <div class="advertisements">
+        <img src="/img/ad2.png" />
+        <img src="/img/ad1.png" />
     </div>
+
+
+    
     <script>
         document.getElementById('search_input').addEventListener("change",function (e) {
             document.getElementById('search_btn').focus();
